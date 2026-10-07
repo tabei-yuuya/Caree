@@ -1,0 +1,39 @@
+@use "global" as *;
+
+.logo {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  color: $green;
+  line-height: 1;
+}
+
+.logo__mark {
+  font-family: $font-logo;
+  font-size: rem(45);
+  line-height: 1.5;
+
+  // SPヘッダー用の小さいロゴ
+  .logo--small & {
+    font-size: rem(29);
+
+    @include mq(lg) {
+      font-size: rem(45);
+    }
+  }
+}
+
+.logo__text {
+  font-size: rem(16);
+  font-weight: 700;
+  line-height: 1.4;
+  white-space: nowrap;
+
+  .logo--small & {
+    font-size: rem(12);
+
+    @include mq(lg) {
+      font-size: rem(16);
+    }
+  }
+}

@@ -1,0 +1,47 @@
+@use "global" as *;
+
+// SP: 左右15pxの余白 / PC: メイン領域いっぱい(1240)
+.contact {
+  position: relative;
+  margin: rem(80) rem($padding-sp) 0;
+  overflow: hidden;
+  color: $white;
+  border-radius: rem(20);
+  background:
+    linear-gradient(76deg, rgba(246, 162, 0, 0.9) 0%, rgba(251, 162, 27, 0.9) 37.6%, rgba(255, 199, 0, 0.9) 99%),
+    url(../images/common/contact-bg.jpg) no-repeat center / cover;
+
+  @include mq(lg) {
+    margin: rem(120) 0 0;
+  }
+}
+
+.contact__inner {
+  padding-top: rem(24);
+  padding-bottom: rem(40);
+
+  @include mq(lg) {
+    padding-top: rem(64);
+    padding-bottom: rem(64);
+  }
+}
+
+.contact__text {
+  margin-top: rem(24);
+  font-size: rem(14);
+  line-height: 1.5;
+
+  @include mq(lg) {
+    max-width: rem(620);
+  }
+}
+
+.contact__button {
+  margin-top: rem(40);
+  text-align: center;
+
+  @include mq(lg) {
+    margin-top: rem(60);
+    text-align: left;
+  }
+}

@@ -1,0 +1,47 @@
+@use "global" as *;
+
+// 179 x 49 の丸ボタン(ホバーで白地+オレンジ枠に反転)
+.button {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: rem(16);
+  width: rem(179);
+  height: rem(49);
+  font-size: rem(16);
+  line-height: 1.5;
+  color: $white;
+  background-color: $orange;
+  border: 1px solid $orange;
+  border-radius: rem(30);
+
+  @include hover {
+    color: $orange;
+    background-color: $white;
+  }
+
+  &--en {
+    font-family: $font-en;
+  }
+
+  &--green {
+    background-color: $green;
+    border-color: $green;
+
+    @include hover {
+      color: $green;
+      background-color: $white;
+    }
+  }
+}
+
+.button__icon {
+  flex-shrink: 0;
+  border-radius: 50%;
+  transition: box-shadow 0.3s;
+
+  // ホバー時は白地になるので、アイコンの円を枠線で見せる
+  .button:hover & {
+    box-shadow: 0 0 0 1px currentColor;
+  }
+}

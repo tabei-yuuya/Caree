@@ -1,0 +1,100 @@
+@use "global" as *;
+
+.footer {
+  background-color: $gray;
+}
+
+.footer__inner {
+  padding-top: rem(40);
+  padding-bottom: rem(40);
+
+  @include mq(lg) {
+    padding-bottom: rem(64);
+  }
+}
+
+.footer__top {
+  @include mq(lg) {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: rem(40);
+  }
+}
+
+.footer__address {
+  display: grid;
+  gap: rem(8);
+  margin-top: rem(16);
+  font-size: rem(16);
+  font-style: normal;
+  line-height: normal;
+}
+
+.footer__sns {
+  display: flex;
+  gap: rem(8);
+  margin-top: rem(16);
+}
+
+.footer__sns-link {
+  display: grid;
+  place-items: center;
+  width: rem(24);
+  height: rem(24);
+
+  @include hover {
+    opacity: 0.6;
+  }
+}
+
+.footer__nav {
+  margin-top: rem(40);
+
+  @include mq(lg) {
+    margin-top: rem(107);
+  }
+}
+
+.footer__nav-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: rem(32) rem(24);
+  font-size: rem(14);
+  line-height: normal;
+
+  @include mq(lg) {
+    gap: rem(16) rem(40);
+  }
+}
+
+.footer__nav-link {
+  @include hover {
+    color: $orange;
+  }
+}
+
+.footer__bottom {
+  position: relative;
+  margin-top: rem(70);
+  text-align: center;
+
+  @include mq(lg) {
+    margin-top: rem(36);
+  }
+}
+
+.footer__copyright {
+  font-family: $font-en;
+  font-size: rem(14);
+}
+
+.footer__pagetop {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+
+  @include hover {
+    opacity: 0.7;
+  }
+}

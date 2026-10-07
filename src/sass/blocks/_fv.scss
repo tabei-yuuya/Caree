@@ -1,0 +1,30 @@
+@use "global" as *;
+
+.fv {
+  height: 100vh;
+  min-height: rem(560);
+  color: $white;
+  background: url(../images/top/fv.jpg) no-repeat center / cover;
+}
+
+.fv__inner {
+  padding-top: rem(200);
+}
+
+.fv__title {
+  font-family: $font-en;
+  font-size: rem(24);
+  font-weight: 700;
+  line-height: 1.5;
+
+  @include mq(lg) {
+    font-size: rem(48);
+  }
+}
+
+.fv__text {
+  margin-top: rem(16);
+  font-size: rem(16);
+  font-weight: 700;
+  line-height: 1.5;
+}

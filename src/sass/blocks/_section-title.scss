@@ -1,0 +1,36 @@
+@use "global" as *;
+
+.section-title {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.5;
+  color: $black;
+
+  &--white {
+    color: $white;
+  }
+}
+
+.section-title__ja {
+  font-size: rem(24);
+  font-weight: 700;
+
+  @include mq(lg) {
+    font-size: rem(32);
+  }
+}
+
+.section-title__en {
+  font-family: $font-en;
+  font-size: rem(14);
+  font-weight: 400;
+  color: $orange;
+
+  @include mq(lg) {
+    font-size: rem(16);
+  }
+
+  .section-title--white & {
+    color: $white;
+  }
+}

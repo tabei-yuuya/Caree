@@ -1,0 +1,66 @@
+@use "global" as *;
+
+// FVの下端に重ねる(PC 110px / SP 147px)
+.service {
+  position: relative;
+  margin-top: rem(-147);
+
+  @include mq(lg) {
+    margin-top: rem(-110);
+  }
+}
+
+.service__list {
+  display: grid;
+  gap: rem(40);
+  justify-content: center;
+  grid-template-columns: minmax(0, rem(318));
+
+  @include mq(lg) {
+    grid-template-columns: repeat(3, 1fr);
+    gap: rem(23);
+  }
+}
+
+.service__card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: rem(283);
+  padding: rem(33) rem(24) rem(32);
+  color: $white;
+  background-color: $orange;
+  border-radius: rem(5);
+}
+
+.service__icon {
+  width: rem(40);
+  height: rem(40);
+
+  &--pc {
+    display: grid;
+    place-items: center;
+  }
+}
+
+.service__title {
+  font-size: rem(24);
+  font-weight: 700;
+  line-height: 1.5;
+  text-align: center;
+}
+
+.service__text {
+  margin-top: rem(16);
+  font-size: rem(14);
+  line-height: 1.5;
+}
+
+.service__button {
+  margin-top: rem(40);
+  text-align: center;
+
+  @include mq(lg) {
+    margin-top: rem(64);
+  }
+}

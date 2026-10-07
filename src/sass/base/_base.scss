@@ -1,0 +1,20 @@
+@use "global" as *;
+
+html {
+  font-size: 100%;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: $font-ja;
+  font-weight: 400;
+  line-height: 1.8;
+  color: $black;
+  background-color: $white;
+  -webkit-font-smoothing: antialiased;
+}
+
+a,
+button {
+  transition: opacity 0.3s, color 0.3s, background-color 0.3s, border-color 0.3s;
+}

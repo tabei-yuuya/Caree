@@ -1,0 +1,44 @@
+@use "global" as *;
+
+.nav__item {
+  background: url(../images/common/line-dashed.svg) no-repeat top left / 100% 1px;
+
+  &--contact {
+    background-color: $green;
+    color: $white;
+  }
+}
+
+.nav__link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: rem(24) 0;
+  line-height: normal;
+  text-align: center;
+
+  @include mq(lg) {
+    padding: rem(28) 0;
+  }
+
+  @include hover {
+    color: $orange;
+  }
+
+  .nav__item--contact & {
+    @include hover {
+      color: $white;
+      opacity: 0.8;
+    }
+  }
+}
+
+.nav__ja {
+  font-size: rem(16);
+}
+
+.nav__en {
+  margin-top: rem(2);
+  font-family: $font-en;
+  font-size: rem(14);
+}

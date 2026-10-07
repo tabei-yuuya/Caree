@@ -1,0 +1,105 @@
+@use "sass:math";
+@use "global" as *;
+
+.company {
+  margin-top: rem(80);
+
+  @include mq(lg) {
+    margin-top: rem(120);
+  }
+}
+
+.company__box {
+  padding: rem(24) rem(14) rem(40);
+  background-color: $white;
+  border: 1px solid $orange;
+  border-radius: rem(10);
+
+  @include mq(lg) {
+    padding: rem(40) rem(40) rem(64);
+  }
+}
+
+.company__body {
+  margin-top: rem(24);
+
+  // 768px以上は写真と情報を左右に並べる
+  @include mq(md) {
+    display: grid;
+    grid-template-columns: minmax(0, 425fr) minmax(0, 416fr);
+    gap: rem(40);
+  }
+
+  @include mq(lg) {
+    gap: rem(79);
+    margin-top: rem(40);
+  }
+}
+
+// オレンジの四角の上に写真を重ねる
+.company__image {
+  position: relative;
+  padding: rem(72) 0 0 rem(18);
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: rem(225);
+    height: rem(300);
+    background-color: $orange;
+    border-radius: rem(5);
+
+    @include mq(md) {
+      width: percentage(math.div(225, 425));
+      height: auto;
+      aspect-ratio: 225 / 300;
+    }
+  }
+
+  img {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 299 / 254;
+    object-fit: cover;
+    border-radius: rem(5);
+  }
+
+  @include mq(md) {
+    padding: rem(40) 0 0 percentage(math.div(72, 425));
+
+    img {
+      aspect-ratio: 353 / 300;
+    }
+  }
+}
+
+.company__content {
+  margin-top: rem(40);
+
+  @include mq(md) {
+    margin-top: 0;
+  }
+}
+
+.company__info {
+  display: grid;
+  gap: rem(16);
+  font-size: rem(16);
+  line-height: 1.5;
+
+  dt {
+    font-family: $font-en;
+    color: $orange;
+  }
+}
+
+.company__button {
+  margin-top: rem(40);
+  text-align: center;
+
+  @include mq(md) {
+    text-align: left;
+  }
+}

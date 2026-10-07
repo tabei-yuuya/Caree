@@ -1,0 +1,7 @@
+// BEM
+// base   : リセット・全体の基本スタイル(読み込み順を固定)
+// blocks : 1ブロック = 1ファイル(例: _header.scss → .header / .header__logo / .header__logo--small)
+@use "base/reset";
+@use "base/base";
+@use "base/helper";
+@use "blocks/**";

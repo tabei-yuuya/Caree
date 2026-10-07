@@ -1,0 +1,126 @@
+@use "global" as *;
+
+.achievement {
+  margin-top: rem(80);
+
+  @include mq(lg) {
+    margin-top: rem(120);
+  }
+}
+
+.achievement__list {
+  display: grid;
+  gap: rem(40);
+  margin-top: rem(24);
+
+  // タブレット幅は2列(写真が大きくなりすぎないように)
+  @include mq(md) {
+    grid-template-columns: repeat(2, 1fr);
+    gap: rem(40) rem(24);
+  }
+
+  @include mq(lg) {
+    gap: rem(8);
+    margin-top: rem(40);
+    overflow: hidden;
+    border-radius: rem(10);
+  }
+}
+
+// SP: 写真の上に職種ラベルを重ね、その下にプロフィール
+.achievement__card {
+  position: relative;
+  display: grid;
+
+  @include mq(lg) {
+    display: block;
+    aspect-ratio: 496 / 331;
+  }
+}
+
+.achievement__image {
+  grid-area: 1 / 1;
+}
+
+.achievement__image img {
+  width: 100%;
+  aspect-ratio: 345 / 230; // 元写真と同じ3:2なので顔が見切れない
+  object-fit: cover;
+
+  @include mq(lg) {
+    position: absolute;
+    inset: 0;
+    height: 100%;
+    aspect-ratio: auto;
+  }
+}
+
+// デザインで左右反転されている写真
+.achievement__image--flip img {
+  transform: scaleX(-1);
+}
+
+.achievement__body {
+  display: contents;
+
+  @include mq(lg) {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    padding: rem(40);
+  }
+}
+
+.achievement__job {
+  position: relative; // 左右反転(transform)した写真より手前に出す
+  grid-area: 1 / 1;
+  align-self: end;
+  justify-self: start;
+  margin: 0 0 rem(16) rem(14);
+  width: rem(180);
+  padding: rem(7) 0;
+  font-size: rem(16);
+  line-height: normal;
+  text-align: center;
+  border: 1px solid $orange;
+
+  @include mq(lg) {
+    align-self: auto;
+    margin: 0;
+  }
+}
+
+.achievement__profile {
+  margin-top: rem(16);
+  padding-left: rem(14);
+
+  @include mq(lg) {
+    margin-top: 0;
+    padding-left: 0;
+  }
+}
+
+.achievement__name {
+  font-size: rem(24);
+  font-weight: 700;
+  line-height: normal;
+}
+
+.achievement__history {
+  display: grid;
+  gap: rem(4);
+  margin-top: rem(8);
+  font-size: rem(14);
+  line-height: normal;
+}
+
+.achievement__button {
+  margin-top: rem(40);
+  text-align: center;
+
+  @include mq(lg) {
+    margin-top: rem(64);
+  }
+}

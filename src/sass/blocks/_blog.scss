@@ -1,0 +1,37 @@
+@use "global" as *;
+
+.blog {
+  margin-top: rem(80);
+
+  @include mq(lg) {
+    margin-top: rem(120);
+  }
+}
+
+.blog__list {
+  display: grid;
+  gap: rem(40);
+  justify-content: center;
+  grid-template-columns: minmax(0, rem(316));
+  margin-top: rem(24);
+
+  // 768px以上は3列(記事3件が1段に収まる)
+  @include mq(md) {
+    grid-template-columns: repeat(3, 1fr);
+    gap: rem(16);
+  }
+
+  @include mq(lg) {
+    gap: rem(26);
+    margin-top: rem(40);
+  }
+}
+
+.blog__button {
+  margin-top: rem(40);
+  text-align: center;
+
+  @include mq(lg) {
+    margin-top: rem(64);
+  }
+}

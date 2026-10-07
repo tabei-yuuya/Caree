@@ -1,0 +1,8 @@
+@use "global" as *;
+
+// サイドバーの右側に並ぶメイン領域
+.page {
+  @include mq(lg) {
+    margin-left: rem($sidebar-width);
+  }
+}

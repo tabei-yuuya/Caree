@@ -22,19 +22,19 @@ const rename = require('gulp-rename');//ファイル名変更
 
 // 読み込み先
 const srcPath = {
-  css: "../src/sass/**/*.scss",
-  js: "../src/js/**/*",
-  img: "../src/images/**/*",
-  html: ["../src/**/*.html", "!./node_modules/**"],
+  css: "./src/sass/**/*.scss",
+  js: "./src/js/**/*",
+  img: "./src/images/**/*",
+  html: ["./src/**/*.html", "!./node_modules/**"],
 };
 
 // html反映用
 const destPath = {
-  all: "../dist/**/*",
-  css: "../dist/assets/css/",
-  js: "../dist/assets/js/",
-  img: "../dist/assets/images/",
-  html: "../dist/",
+  all: "./dist/**/*",
+  css: "./dist/assets/css/",
+  js: "./dist/assets/js/",
+  img: "./dist/assets/images/",
+  html: "./dist/",
 };
 
 const browsers = ["last 2 versions", "> 5%", "ie = 11", "not ie <= 10", "ios >= 8", "and_chr >= 5", "Android >= 5"];
@@ -161,7 +161,7 @@ const jsBabel = () => {
 // ブラウザーシンク
 const browserSyncOption = {
   notify: false,
-  server: "../dist/",
+  server: "./dist/",
 };
 const browserSyncFunc = () => {
   browserSync.init(browserSyncOption);

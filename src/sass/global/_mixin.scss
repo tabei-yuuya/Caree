@@ -1,0 +1,18 @@
+@use "setting" as *;
+
+// メディアクエリ(モバイルファースト)
+// 例: @include mq(lg) { ... } → 1024px以上(PCレイアウトへの切り替え)
+@mixin mq($bp: lg) {
+  @media screen and (min-width: #{map-get($breakpoints, $bp)}px) {
+    @content;
+  }
+}
+
+// ホバー可能な端末のみ hover を当てる
+@mixin hover {
+  @media (any-hover: hover) {
+    &:hover {
+      @content;
+    }
+  }
+}

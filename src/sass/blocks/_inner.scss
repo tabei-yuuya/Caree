@@ -1,0 +1,13 @@
+@use "global" as *;
+
+// コンテンツ幅を揃えるラッパー
+.inner {
+  width: 100%;
+  max-width: rem($inner-width + $padding-pc * 2);
+  margin-inline: auto;
+  padding-inline: rem($padding-sp);
+
+  @include mq(lg) {
+    padding-inline: rem($padding-pc);
+  }
+}

@@ -1,0 +1,74 @@
+@use "global" as *;
+
+// SP: FVの上に重なるヘッダー / PC: 左固定のサイドバー
+.header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
+  padding: rem(10) rem($padding-sp) 0;
+
+  @include mq(lg) {
+    position: fixed;
+    flex-direction: column;
+    align-items: stretch;
+    width: rem($sidebar-width);
+    height: 100vh;
+    padding: 0;
+    overflow-y: auto;
+    background-color: $cream;
+  }
+}
+
+.header__logo {
+  position: relative;
+  z-index: 2;
+  width: rem(120);
+
+  @include mq(lg) {
+    flex-shrink: 0;
+    width: auto;
+    padding: rem(32) 0 rem(33);
+  }
+}
+
+.header__toggle {
+  position: relative;
+  z-index: 2;
+  margin-top: rem(23);
+
+  @include mq(lg) {
+    display: none;
+  }
+}
+
+// SP: 全画面ドロワー / PC: サイドバー内のナビ
+.header__nav {
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  padding: rem(100) rem($padding-sp) rem(40);
+  overflow-y: auto;
+  background-color: $cream;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s, visibility 0.3s;
+
+  &.is-open {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  @include mq(lg) {
+    position: static;
+    padding: 0;
+    overflow: visible;
+    background-color: transparent;
+    opacity: 1;
+    visibility: visible;
+  }
+}

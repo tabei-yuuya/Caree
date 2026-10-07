@@ -1,0 +1,112 @@
+@use "global" as *;
+
+.about {
+  margin-top: rem(80);
+
+  @include mq(lg) {
+    margin-top: rem(120);
+  }
+}
+
+.about__box {
+  position: relative;
+  isolation: isolate;
+  padding: 0 rem(14) rem(40);
+  overflow: hidden;
+  background-color: $white;
+  border: 1px solid $orange;
+  border-radius: rem(10);
+
+  @include mq(md) {
+    padding: rem(40) rem(40) rem(64);
+  }
+}
+
+// オレンジを重ねた写真(SP: 上部の帯 / 768px以上: 左側の帯)
+.about__head {
+  position: relative;
+  margin: 0 rem(-14);
+  padding: rem(24) rem(14) 0;
+  height: rem(190);
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: linear-gradient(rgba($orange, 0.6), rgba($orange, 0.6)), url(../images/top/about-bg.jpg) no-repeat center / cover;
+  }
+
+  @include mq(md) {
+    position: static;
+    height: auto;
+    margin: 0;
+    padding: 0;
+
+    &::before {
+      inset: 0 auto 0 0;
+      z-index: 0;
+      width: 33.6%; // デザイン 336 / 1000
+    }
+  }
+}
+
+.about__head .section-title {
+  position: relative;
+}
+
+.about__body {
+  position: relative;
+  margin-top: rem(-69);
+
+  @include mq(md) {
+    display: grid;
+    grid-template-columns: minmax(0, 460fr) minmax(0, 418fr);
+    gap: rem(40);
+    margin-top: rem(40);
+  }
+}
+
+.about__image img {
+  width: 100%;
+  aspect-ratio: 317 / 161;
+  object-fit: cover;
+  border-radius: rem(5);
+
+  // 768px以上は隣の本文と高さを揃える(PCデザインでは写真・本文とも235px)
+  @include mq(md) {
+    height: 100%;
+    aspect-ratio: auto;
+  }
+}
+
+.about__image {
+  @include mq(md) {
+    display: block;
+    height: 100%;
+  }
+}
+
+.about__text {
+  margin-top: rem(40);
+  font-size: rem(14);
+  line-height: 1.5;
+
+  p + p {
+    margin-top: 1.5em;
+  }
+
+  @include mq(md) {
+    margin-top: 0;
+  }
+}
+
+.about__button {
+  position: relative;
+  margin-top: rem(40);
+  text-align: center;
+
+  @include mq(md) {
+    margin-top: rem(64);
+  }
+}
