@@ -1,0 +1,143 @@
+@use "global" as *;
+
+// ブログ詳細(記事のボックス)
+// PCはFigmaの構成データ(位置・サイズ)どおり。色・文字の太さとSPは他ページの規則に合わせた仮
+.blog-detail {
+  margin-top: rem(61);
+
+  @include mq(lg) {
+    margin-top: rem(109);
+  }
+}
+
+.blog-detail__box {
+  padding: rem(24) rem(14) rem(40);
+  background-color: $white;
+  border: 1px solid $orange;
+  border-radius: rem(10);
+
+  @include mq(md) {
+    padding: rem(80) rem(40);
+  }
+}
+
+.blog-detail__article {
+  max-width: rem(730);
+  margin-inline: auto;
+}
+
+.blog-detail__image img {
+  width: 100%;
+  aspect-ratio: 730 / 480;
+  object-fit: cover;
+  border-radius: rem(5);
+}
+
+.blog-detail__label {
+  display: block;
+  width: rem(75);
+  margin-top: rem(24);
+  padding: rem(4) 0;
+  font-family: $font-en;
+  font-size: rem(12);
+  line-height: 1;
+  color: $white;
+  text-align: center;
+  background-color: $orange;
+
+  @include mq(lg) {
+    margin-top: rem(40);
+  }
+}
+
+.blog-detail__title {
+  margin-top: rem(16);
+  font-size: rem(24);
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+.blog-detail__date {
+  display: block;
+  margin-top: rem(8);
+  font-family: $font-en;
+  font-size: rem(14);
+  line-height: 1.5;
+}
+
+.blog-detail__body {
+  margin-top: rem(40);
+  font-size: rem(16);
+  line-height: 1.5;
+
+  // 段落の間は1行あける(構成データの本文の高さ288 = 12行分から逆算)
+  p + p {
+    margin-top: 1.5em;
+  }
+}
+
+// 前後の記事・一覧に戻る
+.blog-detail__pager {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: rem(64);
+  font-size: rem(16);
+  line-height: normal;
+
+  @include mq(lg) {
+    margin-top: rem(98);
+  }
+}
+
+.blog-detail__pager-arrow {
+  display: grid;
+  place-items: center;
+  width: rem(24);
+  height: rem(24);
+
+  // くの字の矢印(10 x 20)
+  &::before {
+    content: "";
+    width: rem(14);
+    height: rem(14);
+    border-top: 1px solid currentColor;
+    border-left: 1px solid currentColor;
+  }
+
+  &--prev {
+    margin-right: rem(59);
+
+    &::before {
+      margin-left: rem(7);
+      transform: rotate(-45deg);
+    }
+  }
+
+  &--next {
+    margin-left: rem(69);
+
+    &::before {
+      margin-right: rem(7);
+      transform: rotate(135deg);
+    }
+  }
+
+  @include hover {
+    color: $orange;
+  }
+}
+
+.blog-detail__pager-link,
+.blog-detail__back-link {
+  @include hover {
+    color: $orange;
+  }
+}
+
+.blog-detail__back {
+  margin-top: rem(64);
+  font-size: rem(16);
+  line-height: normal;
+  text-align: center;
+}

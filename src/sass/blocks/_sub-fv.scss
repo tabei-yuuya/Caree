@@ -65,3 +65,27 @@
   top: 1.5em;
   left: 0;
 }
+
+// 1行の見出し(キーワードが1行目の先頭にある)
+// PCは見出しがデザインどおり287pxの位置。SPはデザイン未取得のため、2行見出しと下端をそろえた仮
+.sub-fv--single {
+  .sub-fv__inner {
+    padding-top: rem(192);
+
+    @include mq(lg) {
+      padding-top: rem(287);
+    }
+  }
+
+  .sub-fv__circle {
+    top: rem(-16);
+
+    @include mq(lg) {
+      top: rem(-29);
+    }
+  }
+
+  .sub-fv__accent {
+    top: 0;
+  }
+}
