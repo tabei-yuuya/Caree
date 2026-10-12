@@ -1,0 +1,67 @@
+@use "global" as *;
+
+// 下層ページのFV
+// 背景写真の上に、見出しと次のセクションが重なる
+// 高さはデザインどおり固定(100vhにすると縦長の画面で下のセクションまで写真が伸びて文字が読めなくなる)
+.sub-fv__bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  width: 100%;
+  height: rem(667);
+  background: url(../images/top/fv.jpg) no-repeat center / cover;
+
+  @include mq(lg) {
+    height: rem(768);
+  }
+}
+
+.sub-fv__inner {
+  padding-top: rem(144);
+
+  @include mq(lg) {
+    padding-top: rem(180);
+  }
+}
+
+// 見出しは3層:白文字 → オレンジの丸 → 丸の上に重ねるキーワード
+.sub-fv__title {
+  position: relative;
+  margin-left: rem(19);
+  font-size: rem(32);
+  font-weight: 700;
+  line-height: 1.5;
+  color: $white;
+
+  @include mq(lg) {
+    margin-left: 0;
+    font-size: rem(64);
+  }
+}
+
+.sub-fv__circle {
+  position: absolute;
+  top: rem(42);
+  left: rem(-19);
+
+  img {
+    width: rem(175);
+    height: auto;
+  }
+
+  @include mq(lg) {
+    top: rem(78);
+
+    img {
+      width: rem(320);
+    }
+  }
+}
+
+// 2行目の先頭のキーワードと同じ位置に重ねる
+.sub-fv__accent {
+  position: absolute;
+  top: 1.5em;
+  left: 0;
+}

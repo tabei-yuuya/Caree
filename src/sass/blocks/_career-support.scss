@@ -1,0 +1,54 @@
+@use "global" as *;
+
+// キャリアサポートとは(写真+文章)
+.career-support {
+  margin-top: rem(80);
+
+  @include mq(lg) {
+    margin-top: rem(120);
+  }
+}
+
+.career-support__inner {
+  @include mq(md) {
+    display: grid;
+    grid-template-columns: minmax(0, 500fr) minmax(0, 460fr);
+    align-items: center;
+    gap: rem(40);
+  }
+}
+
+.career-support__image img {
+  width: 100%;
+  aspect-ratio: 345 / 276;
+  object-fit: cover;
+  border-radius: rem(10);
+
+  @include mq(md) {
+    aspect-ratio: 500 / 400;
+  }
+}
+
+// デザインは 写真500 + 間隔40 + 文章420 で、右に40の余白がある
+.career-support__content {
+  margin-top: rem(24);
+
+  @include mq(md) {
+    margin-top: 0;
+    padding-right: rem(40);
+  }
+}
+
+.career-support__text {
+  margin-top: rem(8);
+  font-size: rem(16);
+  line-height: 1.5;
+
+  p + p {
+    margin-top: 1.5em;
+  }
+
+  @include mq(lg) {
+    margin-top: rem(40);
+  }
+}

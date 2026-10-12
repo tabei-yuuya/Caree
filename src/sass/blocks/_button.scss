@@ -24,6 +24,11 @@
     font-family: $font-en;
   }
 
+  // 「TOPへ戻る」など少し長い文言用(186 x 49)
+  &--wide {
+    width: rem(186);
+  }
+
   &--green {
     background-color: $green;
     border-color: $green;

@@ -1,0 +1,5 @@
+// 下層ページのmain(FVの背景写真を後ろに敷くための重なり順の基準)
+.sub-page {
+  position: relative;
+  isolation: isolate;
+}

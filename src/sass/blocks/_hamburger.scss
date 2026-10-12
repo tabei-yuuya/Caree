@@ -1,6 +1,7 @@
 @use "global" as *;
 
-// 仮実装:SPハンバーガーメニューのデザイン未取得
+// 38 x 20、緑の3本線(デザインのSVGと同じ見た目をCSSで作り、開閉で×に変形)
+// 開いた後のメニュー画面のデザインは未取得のため仮
 .hamburger {
   position: relative;
   width: rem(38);
@@ -12,11 +13,12 @@
   left: 0;
   width: 100%;
   height: 2px;
-  background-color: $white;
-  transition: transform 0.3s, opacity 0.3s, background-color 0.3s;
+  background-color: $green;
+  border-radius: 1px;
+  transition: transform 0.3s, opacity 0.3s;
 
   &:nth-child(1) {
-    top: 0;
+    top: -1px;
   }
 
   &:nth-child(2) {
@@ -24,14 +26,12 @@
   }
 
   &:nth-child(3) {
-    bottom: 0;
+    bottom: -1px;
   }
 
   .hamburger[aria-expanded="true"] & {
-    background-color: $black;
-
     &:nth-child(1) {
-      transform: translateY(rem(9)) rotate(30deg);
+      transform: translateY(rem(10)) rotate(30deg);
     }
 
     &:nth-child(2) {
@@ -39,7 +39,7 @@
     }
 
     &:nth-child(3) {
-      transform: translateY(rem(-9)) rotate(-30deg);
+      transform: translateY(rem(-10)) rotate(-30deg);
     }
   }
 }

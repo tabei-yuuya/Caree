@@ -1,0 +1,88 @@
+@use "global" as *;
+
+// 理念(オレンジの帯+写真+本文のボックス)
+.policy {
+  margin-top: rem(61);
+
+  @include mq(lg) {
+    margin-top: rem(120);
+  }
+}
+
+.policy__box {
+  position: relative;
+  isolation: isolate;
+  padding: rem(24) rem(14) rem(40);
+  overflow: hidden;
+  background-color: $white;
+  border: 1px solid $orange;
+  border-radius: rem(10);
+
+  // オレンジの帯(SP: 左上の四角 / 768px以上: 左側の帯)
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    width: rem(140);
+    height: rem(220);
+    background-color: $orange;
+  }
+
+  @include mq(md) {
+    padding: rem(40) rem(40) rem(56);
+
+    &::before {
+      width: 33.6%; // デザイン 336 / 1000
+      height: 100%;
+    }
+  }
+}
+
+.policy__body {
+  margin-top: rem(16);
+
+  @include mq(md) {
+    display: grid;
+    grid-template-columns: minmax(0, 460fr) minmax(0, 418fr);
+    gap: rem(40);
+    margin-top: rem(40);
+  }
+}
+
+.policy__image img {
+  width: 100%;
+  aspect-ratio: 317 / 160;
+  object-fit: cover;
+  object-position: top;
+  border-radius: rem(5);
+
+  @include mq(md) {
+    aspect-ratio: 460 / 235;
+  }
+}
+
+.policy__content {
+  margin-top: rem(24);
+
+  @include mq(md) {
+    margin-top: 0;
+  }
+}
+
+.policy__heading {
+  font-size: rem(24);
+  font-weight: 700;
+  line-height: calc(32 / 24);
+}
+
+.policy__text {
+  margin-top: rem(8);
+  font-size: rem(16);
+  line-height: 1.5;
+
+  p + p {
+    margin-top: 1.5em;
+  }
+}

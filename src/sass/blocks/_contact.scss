@@ -6,13 +6,14 @@
   margin: rem(80) rem($padding-sp) 0;
   overflow: hidden;
   color: $white;
-  border-radius: rem(20);
+  border-radius: rem(10);
   background:
     linear-gradient(76deg, rgba(246, 162, 0, 0.9) 0%, rgba(251, 162, 27, 0.9) 37.6%, rgba(255, 199, 0, 0.9) 99%),
     url(../images/common/contact-bg.jpg) no-repeat center / cover;
 
   @include mq(lg) {
     margin: rem(120) 0 0;
+    border-radius: rem(20);
   }
 }
 
