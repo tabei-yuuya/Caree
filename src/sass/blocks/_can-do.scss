@@ -1,0 +1,72 @@
+@use "global" as *;
+
+// 私たちに出来ること(写真+見出し+説明のリスト)
+.can-do {
+  margin-top: rem(80);
+
+  @include mq(lg) {
+    margin-top: rem(120);
+  }
+}
+
+.can-do__box {
+  padding: rem(24) rem(14) rem(40);
+  background-color: $white;
+  border: 1px solid $orange;
+  border-radius: rem(10);
+
+  @include mq(md) {
+    padding: rem(40);
+  }
+}
+
+// SP: 1列 / タブレット: 2列 / PC: 3列
+.can-do__list {
+  display: grid;
+  gap: rem(24);
+  margin-top: rem(16);
+
+  @include mq(md) {
+    grid-template-columns: repeat(2, 1fr);
+    gap: rem(40) rem(25);
+    margin-top: rem(40);
+  }
+
+  @include mq(lg) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.can-do__image img {
+  width: 100%;
+  aspect-ratio: 317 / 160;
+  object-fit: cover;
+  border-radius: rem(5);
+
+  @include mq(md) {
+    aspect-ratio: 290 / 192;
+  }
+}
+
+.can-do__title {
+  margin-top: rem(24);
+  padding-bottom: rem(8);
+  font-size: rem(16);
+  font-weight: 700;
+  line-height: normal;
+  border-bottom: 1px solid $orange;
+
+  @include mq(lg) {
+    margin-top: rem(16);
+  }
+}
+
+.can-do__text {
+  margin-top: rem(16);
+  font-size: rem(16);
+  line-height: normal;
+
+  @include mq(lg) {
+    margin-top: rem(8);
+  }
+}

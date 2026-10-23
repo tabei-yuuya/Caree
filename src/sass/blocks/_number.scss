@@ -1,0 +1,103 @@
+@use "global" as *;
+
+// 数字で見るCodeUps
+.number {
+  margin-top: rem(80);
+
+  @include mq(lg) {
+    margin-top: rem(120);
+  }
+}
+
+.number__box {
+  margin-top: rem(24);
+  padding: rem(40) rem(34);
+  background-color: $white;
+  border: 1px solid $orange;
+  border-radius: rem(10);
+
+  @include mq(md) {
+    max-width: rem(760);
+    margin: rem(40) auto 0;
+    padding: rem(40) 0;
+  }
+}
+
+// SP: 1列 / 768px以上: 2列(右の列の左にオレンジの区切り線)
+.number__list {
+  display: grid;
+  gap: rem(40);
+
+  @include mq(md) {
+    grid-template-columns: repeat(2, 1fr);
+    gap: rem(48) 0;
+  }
+}
+
+.number__item {
+  display: flex;
+  align-items: flex-start;
+  gap: rem(28);
+
+  @include mq(md) {
+    height: rem(200);
+    padding: rem(52) 0 0 rem(68);
+
+    &:nth-child(even) {
+      border-left: 1px solid $orange;
+    }
+  }
+}
+
+.number__icon {
+  flex-shrink: 0;
+  margin-top: rem(11);
+}
+
+.number__body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .number__item--small & {
+    margin-top: rem(25);
+  }
+}
+
+.number__value {
+  display: flex;
+  align-items: flex-end;
+  gap: rem(8);
+}
+
+// デザインどおり大文字の高さで上下を切り詰める(未対応ブラウザでは少し縦に広がるだけ)
+.number__num {
+  font-family: $font-en;
+  font-size: rem(100);
+  font-weight: 700;
+  line-height: 1.4;
+  color: $orange;
+  text-box: trim-both cap alphabetic;
+
+  .number__item--small & {
+    font-size: rem(80);
+    letter-spacing: -0.08em;
+  }
+}
+
+.number__unit {
+  font-size: rem(24);
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+.number__label {
+  margin-top: rem(16);
+  font-size: rem(24);
+  font-weight: 700;
+  line-height: 1.5;
+
+  .number__item--small & {
+    margin-top: rem(6);
+  }
+}

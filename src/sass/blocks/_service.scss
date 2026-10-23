@@ -64,3 +64,20 @@
     margin-top: rem(64);
   }
 }
+
+// 下層ページ(サービス)用:FVに重ねず、カード幅はSPで345
+.service--sub {
+  margin-top: rem(61);
+
+  .service__list {
+    grid-template-columns: minmax(0, rem(345));
+
+    @include mq(lg) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  @include mq(lg) {
+    margin-top: rem(120);
+  }
+}

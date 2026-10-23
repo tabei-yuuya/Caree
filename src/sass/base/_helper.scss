@@ -16,3 +16,12 @@
     display: none;
   }
 }
+
+// PCのみ表示
+.pc-only {
+  display: none;
+
+  @include mq(lg) {
+    display: inline;
+  }
+}
