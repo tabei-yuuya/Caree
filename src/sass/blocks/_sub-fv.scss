@@ -67,10 +67,10 @@
 }
 
 // 1行の見出し(キーワードが1行目の先頭にある)
-// PCは見出しがデザインどおり287pxの位置。SPはデザイン未取得のため、2行見出しと下端をそろえた仮
+// 見出しの位置はデザインどおり(SP 191px / PC 287px)
 .sub-fv--single {
   .sub-fv__inner {
-    padding-top: rem(192);
+    padding-top: rem(191);
 
     @include mq(lg) {
       padding-top: rem(287);
@@ -78,7 +78,7 @@
   }
 
   .sub-fv__circle {
-    top: rem(-16);
+    top: rem(-5);
 
     @include mq(lg) {
       top: rem(-29);

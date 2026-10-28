@@ -1,0 +1,96 @@
+@use "global" as *;
+
+// ブログ一覧の記事カード
+.post-card {
+  display: block;
+}
+
+.post-card__image {
+  display: block;
+  overflow: hidden;
+  border-radius: rem(5);
+
+  img {
+    width: 100%;
+    aspect-ratio: 317 / 193;
+    object-fit: cover;
+    transition: transform 0.3s;
+
+    @include mq(md) {
+      aspect-ratio: 290 / 193;
+    }
+  }
+
+  // 縦長の写真はデザインと同じ位置で切り抜く
+  &--portrait img {
+    object-position: 50% 36%;
+  }
+
+  // 仮のホバー:ブログのホバーアクション詳細は未取得
+  .post-card:hover & img {
+    transform: scale(1.05);
+  }
+}
+
+.post-card__label {
+  display: block;
+  width: rem(75);
+  height: rem(20); // 中身が空のとき(--empty)も同じ高さにする
+  margin-top: rem(16);
+  padding: rem(4) 0;
+  font-family: $font-en;
+  font-size: rem(12);
+  font-weight: 700;
+  line-height: 1;
+  color: $white;
+  text-align: center;
+  background-color: $green;
+  border-radius: rem(10);
+
+  // PCはNEWがない記事もタイトルの位置をそろえる(SPは詰める)
+  &--empty {
+    display: none;
+    visibility: hidden;
+
+    @include mq(md) {
+      display: block;
+    }
+  }
+}
+
+.post-card__title {
+  margin-top: rem(8);
+  font-size: rem(16);
+  font-weight: 700;
+  line-height: 1.5;
+
+  // 写真の直後(SPのNEWなし記事も含む)は16
+  .post-card__image + &,
+  .post-card__label--empty + & {
+    margin-top: rem(16);
+  }
+
+  .post-card__label--empty + & {
+    @include mq(md) {
+      margin-top: rem(8);
+    }
+  }
+}
+
+.post-card__date {
+  display: block;
+  max-width: rem(290);
+  margin-top: rem(8);
+  padding-bottom: rem(3);
+  font-family: $font-en;
+  font-size: rem(14);
+  line-height: 1.5;
+  border-bottom: 1px solid $black;
+}
+
+.post-card__text {
+  max-width: rem(290);
+  margin-top: rem(16);
+  font-size: rem(14);
+  line-height: 1.5;
+}

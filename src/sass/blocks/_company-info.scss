@@ -1,0 +1,119 @@
+@use "global" as *;
+
+// 企業情報(写真+会社情報の表+地図)
+.company-info {
+  margin-top: rem(61);
+
+  @include mq(lg) {
+    margin-top: rem(109);
+  }
+}
+
+.company-info__box {
+  padding: rem(24) rem(14) rem(40);
+  background-color: $white;
+  border: 1px solid $orange;
+  border-radius: rem(10);
+
+  @include mq(md) {
+    padding: rem(40) rem(40) rem(100);
+  }
+}
+
+.company-info__image {
+  display: block;
+  margin-top: rem(16);
+
+  img {
+    width: 100%;
+    aspect-ratio: 317 / 160;
+    object-fit: cover;
+    border-radius: rem(5);
+  }
+
+  @include mq(md) {
+    margin-top: rem(40);
+
+    img {
+      aspect-ratio: 920 / 360;
+    }
+  }
+}
+
+// 表と地図は730幅(PCはデザインどおり左から118の位置)
+.company-info__content {
+  margin-top: rem(24);
+
+  @include mq(md) {
+    max-width: rem(730);
+    margin: rem(80) auto 0;
+  }
+
+  @include mq(lg) {
+    margin-left: rem(118);
+  }
+}
+
+.company-info__table {
+  display: grid;
+  gap: rem(24);
+  font-size: rem(16);
+  line-height: 1.5;
+
+  @include mq(md) {
+    gap: rem(40);
+  }
+}
+
+// SP: 項目名の下に値 / 768px以上: 項目名240 + 値450 の横並び
+.company-info__row {
+  @include mq(md) {
+    display: grid;
+    grid-template-columns: rem(240) 1fr;
+    gap: rem(40);
+  }
+}
+
+.company-info__term {
+  width: rem(110);
+  padding-bottom: rem(15); // 下線1pxを含めて16
+  font-weight: 700;
+  border-bottom: 1px solid $orange;
+
+  @include mq(md) {
+    width: auto;
+    padding: 0 rem(16) rem(15);
+  }
+}
+
+.company-info__desc {
+  margin-top: rem(14);
+  padding-bottom: rem(15);
+  border-bottom: 1px solid $light-gray;
+
+  @include mq(md) {
+    margin-top: 0;
+    padding: 0 rem(16) rem(15);
+  }
+}
+
+.company-info__map {
+  margin-top: rem(40);
+  overflow: hidden;
+  border-radius: rem(5);
+
+  iframe {
+    display: block;
+    width: 100%;
+    height: rem(156);
+    border: 0;
+  }
+
+  @include mq(md) {
+    margin-top: rem(80);
+
+    iframe {
+      height: rem(360);
+    }
+  }
+}

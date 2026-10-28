@@ -1,0 +1,44 @@
+@use "global" as *;
+
+// ブログ一覧(記事カードのボックス+ページ送り)
+.blog-list {
+  margin-top: rem(61);
+
+  @include mq(lg) {
+    margin-top: rem(109);
+  }
+}
+
+.blog-list__box {
+  padding: rem(24) rem(14) rem(40);
+  background-color: $white;
+  border: 1px solid $orange;
+  border-radius: rem(10);
+
+  @include mq(md) {
+    padding: rem(80) rem(40);
+  }
+}
+
+// SP: 1列 / タブレット: 2列 / PC: 3列
+.blog-list__items {
+  display: grid;
+  gap: rem(40);
+
+  @include mq(md) {
+    grid-template-columns: repeat(2, 1fr);
+    gap: rem(80) rem(25);
+  }
+
+  @include mq(lg) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.blog-list__pagination {
+  margin-top: rem(40);
+
+  @include mq(lg) {
+    margin-top: rem(80);
+  }
+}

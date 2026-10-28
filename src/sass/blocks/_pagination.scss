@@ -1,0 +1,101 @@
+@use "global" as *;
+
+// ページ送り(今のページはオレンジのひし形)
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.pagination__arrow {
+  display: grid;
+  flex-shrink: 0;
+  place-items: center;
+
+  img {
+    width: rem(12);
+    height: auto;
+  }
+
+  &--prev {
+    margin-right: rem(18);
+  }
+
+  &--next {
+    margin-left: rem(18);
+
+    img {
+      transform: scaleX(-1);
+    }
+  }
+
+  @include hover {
+    opacity: 0.6;
+  }
+
+  @include mq(lg) {
+    &--prev {
+      margin-right: rem(40);
+    }
+
+    &--next {
+      margin-left: rem(40);
+    }
+  }
+}
+
+.pagination__list {
+  display: flex;
+}
+
+.pagination__item {
+  display: grid;
+  place-items: center;
+  width: rem(51);
+
+  @include mq(lg) {
+    width: rem(75);
+  }
+}
+
+.pagination__link {
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  place-items: center;
+  width: rem(41);
+  height: rem(41);
+  font-family: $font-en;
+  font-size: rem(16);
+  line-height: normal;
+
+  @include mq(lg) {
+    width: rem(59);
+    height: rem(59);
+    font-size: rem(20);
+  }
+
+  @include hover {
+    color: $orange;
+  }
+
+  &--current {
+    color: $white;
+    pointer-events: none;
+
+    &::before {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      width: rem(29);
+      height: rem(29);
+      background-color: $orange;
+      transform: rotate(45deg);
+
+      @include mq(lg) {
+        width: rem(42);
+        height: rem(42);
+      }
+    }
+  }
+}

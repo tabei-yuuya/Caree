@@ -1,0 +1,101 @@
+@use "global" as *;
+
+// お問い合わせフォーム
+// お問い合わせの帯がないページなので、フッターとの間もここで空ける
+.contact-form {
+  margin-top: rem(61);
+  padding-bottom: rem(80);
+
+  @include mq(lg) {
+    margin-top: rem(109);
+    padding-bottom: rem(120);
+  }
+}
+
+.contact-form__box {
+  padding: rem(24) rem(14) rem(40);
+  background-color: $white;
+  border: 1px solid $orange;
+  border-radius: rem(10);
+
+  @include mq(md) {
+    padding: rem(80) rem(40);
+  }
+}
+
+.contact-form__form {
+  @include mq(md) {
+    max-width: rem(780);
+    margin-inline: auto;
+  }
+}
+
+.contact-form__fields {
+  display: grid;
+  gap: rem(40);
+}
+
+// SP: 項目名の下に入力欄 / 768px以上: 項目名195 + 入力欄の横並び
+.contact-form__row {
+  display: grid;
+  gap: rem(8);
+
+  @include mq(md) {
+    grid-template-columns: rem(195) 1fr;
+    gap: 0;
+    align-items: start;
+  }
+}
+
+.contact-form__label {
+  display: flex;
+  align-items: flex-start;
+  gap: rem(8);
+  font-size: rem(16);
+  font-weight: 700;
+  line-height: 1.5;
+  color: $label;
+}
+
+.contact-form__required {
+  font-family: "Zen Old Mincho", serif;
+  font-size: rem(12);
+  font-weight: 400;
+  line-height: 1.5;
+  color: $required;
+}
+
+.contact-form__input {
+  width: 100%;
+  height: rem(46);
+  padding: rem(11) rem(24);
+  font-size: rem(16);
+  line-height: 1.5;
+  background-color: $input-bg;
+  border: 1px solid transparent;
+  border-radius: rem(5);
+  transition: border-color 0.3s;
+
+  &::placeholder {
+    color: $placeholder;
+  }
+
+  &:focus {
+    border-color: $orange;
+    outline: none;
+  }
+
+  &--textarea {
+    height: rem(300);
+    resize: vertical;
+  }
+}
+
+.contact-form__button {
+  margin-top: rem(40);
+  text-align: center;
+
+  @include mq(md) {
+    margin-top: rem(80);
+  }
+}

@@ -1,7 +1,7 @@
 @use "global" as *;
 
 // ブログ詳細(記事のボックス)
-// PCはFigmaの構成データ(位置・サイズ)どおり。色・文字の太さとSPは他ページの規則に合わせた仮
+// PCはFigmaの構成データ(位置・サイズ)どおり。NEWラベルと矢印はブログ一覧のデザインに合わせた。SPは仮
 .blog-detail {
   margin-top: rem(61);
 
@@ -40,10 +40,12 @@
   padding: rem(4) 0;
   font-family: $font-en;
   font-size: rem(12);
+  font-weight: 700;
   line-height: 1;
   color: $white;
   text-align: center;
-  background-color: $orange;
+  background-color: $green;
+  border-radius: rem(10);
 
   @include mq(lg) {
     margin-top: rem(40);
@@ -93,38 +95,26 @@
 .blog-detail__pager-arrow {
   display: grid;
   place-items: center;
-  width: rem(24);
-  height: rem(24);
 
-  // くの字の矢印(10 x 20)
-  &::before {
-    content: "";
-    width: rem(14);
-    height: rem(14);
-    border-top: 1px solid currentColor;
-    border-left: 1px solid currentColor;
+  img {
+    width: rem(12);
+    height: auto;
   }
 
   &--prev {
-    margin-right: rem(59);
-
-    &::before {
-      margin-left: rem(7);
-      transform: rotate(-45deg);
-    }
+    margin-right: rem(66);
   }
 
   &--next {
-    margin-left: rem(69);
+    margin-left: rem(76);
 
-    &::before {
-      margin-right: rem(7);
-      transform: rotate(135deg);
+    img {
+      transform: scaleX(-1);
     }
   }
 
   @include hover {
-    color: $orange;
+    opacity: 0.6;
   }
 }
 
