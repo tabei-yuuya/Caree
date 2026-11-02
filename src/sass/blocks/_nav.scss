@@ -1,11 +1,31 @@
 @use "global" as *;
 
+// SP: ドロワー内のオレンジのメニュー / PC: サイドバーの点線区切りのメニュー
+.nav__list {
+  display: grid;
+  gap: rem(40);
+
+  @include mq(lg) {
+    gap: 0;
+  }
+}
+
 .nav__item {
-  background: url(../images/common/line-dashed.svg) no-repeat top left / 100% 1px;
+  @include mq(lg) {
+    background: url(../images/common/line-dashed.svg) no-repeat top left / 100% 1px;
+  }
 
   &--contact {
-    background-color: $green;
     color: $white;
+    background-color: $orange;
+    border-radius: rem(50);
+    box-shadow: 2px 4px 0 #eee3cc;
+
+    @include mq(lg) {
+      background-color: $green;
+      border-radius: 0;
+      box-shadow: none;
+    }
   }
 }
 
@@ -13,19 +33,32 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: rem(24) 0;
   line-height: normal;
+  color: $orange;
   text-align: center;
 
   @include mq(lg) {
     padding: rem(28) 0;
+    color: inherit;
   }
 
   @include hover {
     color: $orange;
+    opacity: 0.7;
+
+    @include mq(lg) {
+      opacity: 1;
+    }
   }
 
   .nav__item--contact & {
+    padding: rem(8) 0;
+    color: $white;
+
+    @include mq(lg) {
+      padding: rem(28) 0;
+    }
+
     @include hover {
       color: $white;
       opacity: 0.8;

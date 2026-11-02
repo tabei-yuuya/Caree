@@ -2,10 +2,9 @@
 
 // お問い合わせ完了ページ
 // 背景写真(.sub-fv__bg)の範囲に収まる1画面のレイアウト
-// ※SPはデザイン未取得のため「私たちについて」SPの文字サイズ・余白に合わせた仮
 .thanks {
   min-height: rem(667);
-  padding-top: rem(144);
+  padding-top: rem(191);
   padding-bottom: rem(80);
   color: $white;
 
@@ -17,9 +16,10 @@
 }
 
 .thanks__title {
-  font-size: rem(28); // 「ありがとうございます。」(11文字)が375px幅で1行に収まるサイズ
+  font-size: min(#{rem(32)}, 8.6vw); // 375pxで32px。狭い画面でも2行目を折り返さない
   font-weight: 700;
   line-height: 1.5;
+  white-space: nowrap;
 
   @include mq(lg) {
     font-size: rem(64);
@@ -29,7 +29,7 @@
 .thanks__text {
   margin-top: rem(24);
   font-size: rem(16);
-  line-height: 1.45;
+  line-height: normal;
 
   @include mq(lg) {
     max-width: rem(622);

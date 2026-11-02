@@ -4,7 +4,22 @@
   height: 100vh;
   min-height: rem(560);
   color: $white;
+}
+
+// スクロールしても動かない背景(内容がこの上を流れる)
+.fv__bg {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: -2;
+  height: 100vh;
+  min-height: rem(560);
   background: url(../images/top/fv.jpg) no-repeat center / cover;
+
+  @include mq(lg) {
+    left: rem($sidebar-width);
+  }
 }
 
 .fv__inner {

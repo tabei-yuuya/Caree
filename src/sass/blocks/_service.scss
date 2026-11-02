@@ -31,6 +31,14 @@
   color: $white;
   background-color: $orange;
   border-radius: rem(5);
+
+  @include mq(lg) {
+    padding-inline: rem(16);
+  }
+
+  @include mq(xl) {
+    padding-inline: rem(24);
+  }
 }
 
 .service__icon {
@@ -45,6 +53,16 @@
 
 .service__title {
   font-size: rem(24);
+
+  // カードが狭くなるPC幅でも見出しを1行に保つ(1440pxでデザインの24px)
+  @include mq(lg) {
+    font-size: clamp(#{rem(18)}, 1.75vw, #{rem(24)});
+  }
+
+  @include mq(xl) {
+    font-size: rem(24);
+  }
+
   font-weight: 700;
   line-height: 1.5;
   text-align: center;

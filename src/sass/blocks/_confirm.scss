@@ -1,0 +1,55 @@
+@use "global" as *;
+
+// お問い合わせの確認画面(外枠は contact-form を共用)
+.confirm__list {
+  display: grid;
+  gap: rem(51);
+
+  @include mq(md) {
+    gap: rem(62);
+    max-width: rem(780);
+    margin-inline: auto;
+  }
+}
+
+// SP: 項目名の下に値 / 768px以上: 項目名195 + 値の横並び
+.confirm__row {
+  display: grid;
+  gap: rem(19);
+
+  @include mq(md) {
+    grid-template-columns: rem(195) 1fr;
+    gap: 0;
+  }
+
+  &--message {
+    gap: rem(8);
+
+    @include mq(md) {
+      gap: 0;
+    }
+  }
+}
+
+.confirm__desc {
+  font-size: rem(16);
+  line-height: 1.5;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+// SP: 送信が上 / 768px以上: 訂正が左、送信が右
+.confirm__buttons {
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+  gap: rem(40);
+  margin-top: rem(56);
+
+  @include mq(md) {
+    flex-direction: row;
+    justify-content: center;
+    gap: rem(80);
+    margin-top: rem(80);
+  }
+}

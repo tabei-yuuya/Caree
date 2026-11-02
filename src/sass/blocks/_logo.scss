@@ -8,17 +8,25 @@
   line-height: 1;
 }
 
+// CodeUpsのロゴ(SVGをマスクにして、色は currentColor で切り替える)
 .logo__mark {
-  font-family: $font-logo;
-  font-size: rem(45);
-  line-height: 1.5;
+  display: block;
+  width: rem(151);
+  height: rem(68);
+  overflow: hidden;
+  text-indent: 100%;
+  white-space: nowrap;
+  background-color: currentColor;
+  mask: url(../images/common/logo-mark.svg) no-repeat center / contain;
 
   // SPヘッダー用の小さいロゴ
   .logo--small & {
-    font-size: rem(29);
+    width: rem(97);
+    height: rem(43);
 
     @include mq(lg) {
-      font-size: rem(45);
+      width: rem(151);
+      height: rem(68);
     }
   }
 }
@@ -26,7 +34,7 @@
 .logo__text {
   font-size: rem(16);
   font-weight: 700;
-  line-height: 1.4;
+  line-height: normal;
   white-space: nowrap;
 
   .logo--small & {

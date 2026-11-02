@@ -1,5 +1,28 @@
-// 下層ページのmain(FVの背景写真を後ろに敷くための重なり順の基準)
+@use "global" as *;
+
+// main(固定の背景写真を一番後ろに敷くための重なり順の基準)
 .sub-page {
   position: relative;
   isolation: isolate;
+
+  // 背景写真より下は白。スクロールするとこの白が写真の上にかぶさる
+  &::after {
+    content: "";
+    position: absolute;
+    top: rem(667);
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+    background-color: $white;
+
+    @include mq(lg) {
+      top: rem(768);
+    }
+  }
+
+  // TOPの写真は画面の高さ(100vh)
+  &.sub-page--home::after {
+    top: max(100vh, #{rem(560)});
+  }
 }

@@ -4,15 +4,16 @@
 // 背景写真の上に、見出しと次のセクションが重なる
 // 高さはデザインどおり固定(100vhにすると縦長の画面で下のセクションまで写真が伸びて文字が読めなくなる)
 .sub-fv__bg {
-  position: absolute;
+  position: fixed; // スクロールしても動かない(内容がこの上を流れる)
   top: 0;
+  right: 0;
   left: 0;
-  z-index: -1;
-  width: 100%;
+  z-index: -2;
   height: rem(667);
   background: url(../images/top/fv.jpg) no-repeat center / cover;
 
   @include mq(lg) {
+    left: rem($sidebar-width);
     height: rem(768);
   }
 }

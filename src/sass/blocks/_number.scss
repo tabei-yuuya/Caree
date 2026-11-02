@@ -101,3 +101,32 @@
     margin-top: rem(6);
   }
 }
+
+// 375px未満の狭いスマホでは全体を小さくして枠内に収める
+@media screen and (max-width: 374px) {
+  .number__box {
+    padding-inline: rem(16);
+  }
+
+  .number__item {
+    gap: rem(12);
+  }
+
+  .number__icon {
+    width: rem(64);
+    height: rem(64);
+  }
+
+  .number__num {
+    font-size: rem(80);
+  }
+
+  .number__item--small .number__num {
+    font-size: rem(64);
+  }
+
+  .number__unit,
+  .number__label {
+    font-size: rem(20);
+  }
+}

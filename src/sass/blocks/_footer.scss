@@ -1,6 +1,7 @@
 @use "global" as *;
 
 .footer {
+  position: relative; // 固定の背景写真より手前に出す
   background-color: $gray;
 }
 
@@ -96,5 +97,27 @@
 
   @include hover {
     opacity: 0.7;
+  }
+
+  // スクロール中は画面右下に固定(フッターまで来るとデザインの位置に戻る)
+  &.is-floating {
+    position: fixed;
+    right: rem(15);
+    bottom: rem(15);
+    z-index: 50;
+    border-radius: 50%;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    animation: pagetop-fade 0.3s;
+
+    @include mq(lg) {
+      right: rem(30);
+      bottom: rem(30);
+    }
+  }
+}
+
+@keyframes pagetop-fade {
+  from {
+    opacity: 0;
   }
 }

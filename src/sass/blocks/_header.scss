@@ -2,7 +2,7 @@
 
 // SP: FVの上に重なるヘッダー / PC: 左固定のサイドバー
 .header {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   z-index: 100;
@@ -10,16 +10,36 @@
   justify-content: space-between;
   align-items: flex-start;
   width: 100%;
-  padding: rem(10) rem($padding-sp) 0;
+  padding: rem(10) rem($padding-sp);
+  transition: background-color 0.3s;
 
   @include mq(lg) {
-    position: fixed;
     flex-direction: column;
+    justify-content: flex-start;
     align-items: stretch;
     width: rem($sidebar-width);
     height: 100vh;
     padding: 0;
     overflow-y: auto;
+    background-color: $cream;
+  }
+}
+
+// SP: 写真の上でもロゴとメニューボタンが読めるよう白くぼかす(白背景になったら解除)
+.header:not(.is-scrolled, .is-menu-open) .header__logo,
+.header:not(.is-scrolled, .is-menu-open) .header__toggle {
+  filter: drop-shadow(0 0 3px rgba($white, 0.9));
+
+  @include mq(lg) {
+    filter: none;
+  }
+}
+
+// SP: スクロールしたらヘッダーを白背景に
+.header.is-scrolled {
+  background-color: $white;
+
+  @include mq(lg) {
     background-color: $cream;
   }
 }
@@ -33,6 +53,14 @@
     flex-shrink: 0;
     width: auto;
     padding: rem(32) 0 rem(33);
+  }
+}
+
+.header.is-menu-open .header__logo {
+  color: $orange;
+
+  @include mq(lg) {
+    color: $green;
   }
 }
 
@@ -51,9 +79,9 @@
   position: fixed;
   inset: 0;
   z-index: 1;
-  padding: rem(100) rem($padding-sp) rem(40);
+  padding: rem(120) rem($padding-sp) rem(40);
   overflow-y: auto;
-  background-color: $cream;
+  background-color: $white;
   opacity: 0;
   visibility: hidden;
   transition: opacity 0.3s, visibility 0.3s;

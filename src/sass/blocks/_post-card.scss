@@ -26,7 +26,7 @@
     object-position: 50% 36%;
   }
 
-  // 仮のホバー:ブログのホバーアクション詳細は未取得
+  // ホバーで画像が拡大
   .post-card:hover & img {
     transform: scale(1.05);
   }

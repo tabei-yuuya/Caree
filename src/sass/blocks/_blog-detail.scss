@@ -113,8 +113,10 @@
     }
   }
 
-  @include hover {
-    opacity: 0.6;
+  &[href] {
+    @include hover {
+      opacity: 0.6;
+    }
   }
 }
 

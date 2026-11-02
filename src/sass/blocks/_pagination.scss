@@ -29,8 +29,10 @@
     }
   }
 
-  @include hover {
-    opacity: 0.6;
+  &[href] {
+    @include hover {
+      opacity: 0.6;
+    }
   }
 
   @include mq(lg) {
@@ -75,8 +77,10 @@
     font-size: rem(20);
   }
 
-  @include hover {
-    color: $orange;
+  &[href] {
+    @include hover {
+      color: $orange;
+    }
   }
 
   &--current {

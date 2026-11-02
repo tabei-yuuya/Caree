@@ -1,7 +1,7 @@
 @use "global" as *;
 
 // 38 x 20、緑の3本線(デザインのSVGと同じ見た目をCSSで作り、開閉で×に変形)
-// 開いた後のメニュー画面のデザインは未取得のため仮
+// 開くとオレンジの×(デザインのSVGと同じ角度・長さ)
 .hamburger {
   position: relative;
   width: rem(38);
@@ -15,7 +15,7 @@
   height: 2px;
   background-color: $green;
   border-radius: 1px;
-  transition: transform 0.3s, opacity 0.3s;
+  transition: transform 0.3s, opacity 0.3s, background-color 0.3s;
 
   &:nth-child(1) {
     top: -1px;
@@ -30,8 +30,10 @@
   }
 
   .hamburger[aria-expanded="true"] & {
+    background-color: $orange;
+
     &:nth-child(1) {
-      transform: translateY(rem(10)) rotate(30deg);
+      transform: translateY(rem(10)) rotate(27.76deg) scaleX(1.13);
     }
 
     &:nth-child(2) {
@@ -39,7 +41,7 @@
     }
 
     &:nth-child(3) {
-      transform: translateY(rem(-10)) rotate(-30deg);
+      transform: translateY(rem(-10)) rotate(-27.76deg) scaleX(1.13);
     }
   }
 }
